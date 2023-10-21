@@ -11,7 +11,7 @@ setup(
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.10',
     install_requires=[
         'numpy==1.23.1',
         'matplotlib',
@@ -36,7 +36,6 @@ setup(
         'rich',
         'inquirer',
         'polyscope',
-        'openvr',
         'gdown',
         'distlib'
     ]
