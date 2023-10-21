@@ -1,0 +1,43 @@
+from setuptools import setup, find_packages
+setup(
+    name='robot-utils',
+    version='1.0.0',
+    author='Jianfeng Gao',
+    author_email='jianfeng.gao@kit.edu',
+    description="This package contains utility functions for robotic development in Python",
+    packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+    install_requires=[
+        'numpy==1.23.1',
+        'matplotlib',
+        'scipy',
+        'click',
+        'opencv-python',
+        'open3d',
+        'seaborn',
+        'tqdm',
+        'coloredlogs',
+        'pyyaml',
+        'torchsummary',
+        'icecream',
+        'tabulate',
+        'marshmallow',
+        'marshmallow-dataclass',
+        'marshmallow_enum',
+        'deprecation',
+        'natsort',
+        'tensorboard',
+        'typeguard',
+        'rich',
+        'inquirer',
+        'polyscope',
+        'openvr',
+        'gdown',
+        'distlib'
+    ]
+)
