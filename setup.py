@@ -11,7 +11,7 @@ setup(
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.10',
+    python_requires='>=3.8',
     install_requires=[
         'numpy==1.23.1',
         'matplotlib',
