@@ -25,6 +25,7 @@ def get_installed_packages():
 @dataclass
 class GitConfig:
     url:            str = ""
+    commit:         str = None
     recursive:      bool = False
     submodule:      List[str] = default_field([])
     as_submodule:   str = None
@@ -38,17 +39,20 @@ class GitConfig:
 
         if self.installed or proj_dir.exists():
             validate_path(proj_dir, throw_error=True)
-            run("git pull", working_dir=str(proj_dir))
+            if not self.commit:
+                run("git pull", working_dir=str(proj_dir))
         else:
             if self.url:
                 recursive = " --recursive " if self.recursive else ""
                 run(f"git clone {recursive} {self.url} {name}", working_dir=str(path))
                 validate_path(proj_dir, throw_error=True)
+            if self.commit:
+                run(f"git checkout {self.commit}", working_dir=str(proj_dir))
 
-        if self.submodule:
-            for sub_mod in self.submodule:
-                console.log(f"[bold green]updating submodule: {sub_mod}")
-                run(f"git submodule update --init --remote {sub_mod}", working_dir=str(proj_dir))
+            if self.submodule:
+                for sub_mod in self.submodule:
+                    console.log(f"[bold green]updating submodule: {sub_mod}")
+                    run(f"git submodule update --init --remote {sub_mod}", working_dir=str(proj_dir))
 
 
 @dataclass
